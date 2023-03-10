@@ -15,13 +15,13 @@ class ChartPieVisitas extends Component
     public function render()
     {
         if($this->fechaInicio && $this->fechaFin){
-            $visitas_masculino = Visita::whereHas('alumno', function ($query) {
-                $query->where('genero', 'Masculino')->whereBetween('visitas.created_at', [$this->fechaInicio, $this->fechaFin]);
-            })->count();
+            $visitas_masculino = Visita::join('alumnos', 'alumnos.id', '=', 'visitas.alumno_id')
+            ->where('alumnos.genero', 'like', 'Femenino')->whereBetween('visitas.created_at', [$this->fechaInicio, $this->fechaFin])
+            ->count();
     
-            $visitas_femenino = Visita::whereHas('alumno', function ($query) {
-                $query->where('genero', 'Femenino')->whereBetween('visitas.created_at', [$this->fechaInicio, $this->fechaFin]);
-            })->count();    
+            $visitas_femenino = Visita::join('alumnos', 'alumnos.id', '=', 'visitas.alumno_id')
+            ->where('alumnos.genero', 'like', 'Femenino')->whereBetween('visitas.created_at', [$this->fechaInicio, $this->fechaFin])
+            ->count();   
         }
         else{
             $visitas_masculino = Visita::whereHas('alumno', function ($query) {
@@ -57,8 +57,8 @@ class ChartPieVisitas extends Component
             'borderColor' => false,
             'responsive' => true,
             'maintainAspectRatio' => false,
-            'aspectRatio' => 1.6, // Ancho:Alto = 8:5
-            'height' => 600, // Altura fija de 500 píxeles
+            'aspectRatio' => 1.10, // Ancho:Alto = 8:5
+          //  'height' => 600, // Altura fija de 500 píxeles
         ];
 
         return view('livewire.dashboard.chart-pie-visitas', compact('data', 'options'));

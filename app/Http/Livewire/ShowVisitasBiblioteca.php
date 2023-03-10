@@ -20,7 +20,7 @@ class ShowVisitasBiblioteca extends Component
     {
         $query = Visita::with('Alumno.Carrera')->orderBy('created_at', 'desc');
         if($this->fechaInicio && $this->fechaFin){
-            $query->whereBetween('created_at', [$this->fechaInicio, $this->fechaFin])->orderBy('created_at', 'desc');
+            $query->whereBetween('created_at', [$this->fechaInicio . ' 00:00:00', $this->fechaFin . ' 23:59:59'])->orderBy('created_at', 'desc');
         }
         $visitas = $query->paginate($this->cantidad);
         return view('livewire.show-visitas-biblioteca', compact('visitas'));

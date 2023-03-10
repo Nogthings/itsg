@@ -16,7 +16,7 @@ class FiltrarVisitas extends Component
 
     public function filtrar()
     {
-        $this->emit('filtro', [$this->fechaInicio, $this->fechaFin]);
+        $this->emit('filtro', [$this->fechaInicio . ' 00:00:00', $this->fechaFin . ' 23:59:59']);
     }
 
     public function mount()

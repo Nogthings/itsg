@@ -15,6 +15,7 @@
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4"></script>
+    <script src="https://cdn.lordicon.com/ritcuqlt.js"></script>
     <!-- Styles -->
     @livewireStyles
 </head>

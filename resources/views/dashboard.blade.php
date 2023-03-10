@@ -60,7 +60,6 @@
                 </div>
                 <div class="flex items-center justify-center p-6 mb-4 rounded bg-gray-50 dark:bg-gray-800">
                     @livewire('dashboard.chart-pie-visitas')
-                    @livewire('dashboard.grafica-visitas-sexo')
                 </div>
             </div>
         </div>
