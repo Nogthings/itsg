@@ -47,7 +47,7 @@ class CubiculosExport implements FromQuery, WithHeadings, ShouldAutoSize
             'cubiculos.fecha'
         );
         if($this->fechaInicio && $this->fechaFin){
-            $query->whereBetween('visitas.created_at', [$this->fechaInicio, $this->fechaFin]);
+	  $query->whereBetween('carreras.created_at', [$this->fechaInicio, $this->fechaFin]);
         }
         return $query->select('cubiculos.id', 'cubiculos.nombre_alumno', 'carreras.nombre_carrera', 'cubiculos.genero', 'cubiculos.cubiculo', 'cubiculos.hora_inicio', 'cubiculos.hora_fin', 'cubiculos.fecha');
     }
