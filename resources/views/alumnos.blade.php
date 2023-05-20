@@ -9,7 +9,7 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white dark:bg-gray-900 overflow-hidden shadow-xl sm:rounded-lg p-2">
                 @livewire('show-alumnos')
-            </div>
+            </div> 
         </div>
     </div>
 </x-app-layout>
